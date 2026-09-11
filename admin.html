@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-Shirt World — Admin Panel</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">TW</span><div><b>T-Shirt World</b><small>Product Management</small></div></div>
+    <a href="index.html" class="store-link">← Storefront</a>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div><p class="eyebrow">ADMIN PANEL</p><h1>Product Management</h1><p>Product যোগ, edit, delete এবং backup এক জায়গা থেকে করুন।</p></div>
+      <div class="stats"><div><strong id="productCount">0</strong><span>Products</span></div><div><strong id="featuredCount">0</strong><span>Featured</span></div></div>
+    </section>
+
+    <section class="grid">
+      <div class="card form-card">
+        <div class="card-head"><h2 id="formTitle">নতুন Product</h2><button id="cancelEdit" class="ghost hidden">Cancel edit</button></div>
+        <form id="productForm">
+          <input type="hidden" id="productId">
+          <label>Product name<input id="name" required placeholder="যেমন: Puja Special T-Shirt"></label>
+          <div class="two">
+            <label>Price (৳)<input id="price" type="number" min="0" required placeholder="449"></label>
+            <label>Old price (optional)<input id="oldPrice" type="number" min="0" placeholder="499"></label>
+          </div>
+          <div class="two">
+            <label>Category<input id="category" placeholder="Custom / Puja / Group"></label>
+            <label>Sizes<input id="sizes" placeholder="S, M, L, XL"></label>
+          </div>
+          <label>Description<textarea id="description" rows="3" placeholder="Product সম্পর্কে সংক্ষিপ্ত বর্ণনা"></textarea></label>
+          <label>Product image
+            <input id="imageFile" type="file" accept="image/*">
+            <small>অথবা Image URL ব্যবহার করুন। ছোট ছবি ব্যবহার করলে ভালো।</small>
+          </label>
+          <label>Image URL<input id="imageUrl" type="url" placeholder="https://..."></label>
+          <div class="preview"><img id="preview" alt="Preview"><span id="previewText">Image preview</span></div>
+          <label class="check"><input id="featured" type="checkbox"> Featured product</label>
+          <button class="primary" type="submit" id="saveBtn">+ Add Product</button>
+        </form>
+      </div>
+
+      <div class="card list-card">
+        <div class="card-head"><h2>Products</h2><input id="search" class="search" placeholder="Search product..."></div>
+        <div id="productList" class="product-list"></div>
+        <div id="empty" class="empty hidden">কোনো product নেই। বাম পাশ থেকে প্রথম product যোগ করুন।</div>
+      </div>
+    </section>
+
+    <section class="card backup">
+      <div><h2>Backup & Restore</h2><p>Product data JSON file হিসেবে save করে রাখতে পারবেন। অন্য browser-এ নিতে Import ব্যবহার করুন।</p></div>
+      <div class="backup-actions"><button id="exportBtn" class="secondary">Export JSON</button><label class="filebtn">Import JSON<input id="importFile" type="file" accept=".json,application/json"></label><button id="resetBtn" class="danger">Reset Demo Data</button></div>
+    </section>
+
+    <div id="toast" class="toast"></div>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>
