@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T-Shirt World | Custom T-Shirt</title>
+<meta name="description" content="T-Shirt World — নিজের ডিজাইনে Custom T-Shirt. দুর্গাপূজা স্পেশাল অফার।">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="brand">👕 <span>T-Shirt World</span></div>
+  <nav>
+    <a href="#home">হোম</a><a href="#products">টি-শার্ট</a><a href="#custom">কাস্টম ডিজাইন</a><a href="#offer">অফার</a><a href="#contact">যোগাযোগ</a>
+  </nav>
+  <button class="cart-btn" onclick="openCart()">কার্ট (<span id="cartCount">0</span>)</button>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div>
+    <span class="badge">🌺 দুর্গাপূজা স্পেশাল ২০২৬</span>
+    <h1>আপনার ডিজাইন,<br><em>আপনার T-Shirt</em></h1>
+    <p>নিজের ছবি, নাম বা পছন্দের ডিজাইন দিয়ে তৈরি করুন ইউনিক Custom T-Shirt।</p>
+    <div class="actions"><a class="btn primary" href="#custom">কাস্টমাইজ করুন</a><a class="btn ghost" href="#products">শপ করুন</a></div>
+  </div>
+  <div class="hero-card"><div class="shirt">👕</div><strong>Custom T-Shirt</strong><small>আপনার ডিজাইন এখানে</small></div>
+</section>
+
+<section id="offer" class="offer">
+  <div><span class="badge">LIMITED OFFER</span><h2>দুর্গাপূজা স্পেশাল অফার 🌸</h2><p>পূজার জন্য নিজের পছন্দের ডিজাইনে T-Shirt অর্ডার করুন। Group Order-এর জন্য বিশেষ সুবিধা।</p></div>
+  <a class="btn light" href="#custom">এখনই অর্ডার করুন</a>
+</section>
+
+<section id="products" class="section">
+<h2>জনপ্রিয় T-Shirt</h2><p class="muted">আপনার পছন্দের সাইজ ও ডিজাইন বেছে নিন।</p>
+<div class="grid">
+  <article class="product"><div class="mock">👕</div><h3>Classic Custom T-Shirt</h3><p>নিজের ছবি/লেখা</p><b>৳399</b><button onclick="addToCart('Classic Custom T-Shirt',399)">কার্টে যোগ করুন</button></article>
+  <article class="product"><div class="mock">👕</div><h3>Puja Special T-Shirt</h3><p>দুর্গাপূজা কালেকশন</p><b>৳449</b><button onclick="addToCart('Puja Special T-Shirt',449)">কার্টে যোগ করুন</button></article>
+  <article class="product"><div class="mock">👕</div><h3>Group Custom T-Shirt</h3><p>বন্ধু/পরিবারের জন্য</p><b>৳379</b><button onclick="addToCart('Group Custom T-Shirt',379)">কার্টে যোগ করুন</button></article>
+</div>
+</section>
+
+<section id="custom" class="section custom">
+<div>
+<h2>🎨 নিজের T-Shirt কাস্টমাইজ করুন</h2>
+<p class="muted">আপনার ডিজাইন/ছবি বেছে নিয়ে অর্ডারের তথ্য দিন।</p>
+<form id="orderForm" onsubmit="submitOrder(event)">
+<label>আপনার নাম<input id="name" required placeholder="নাম"></label>
+<label>মোবাইল নম্বর<input id="phone" required placeholder="01XXXXXXXXX" pattern="01[0-9]{9}"></label>
+<label>সাইজ<select id="size"><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></label>
+<label>ডিজাইন/ছবি<input id="design" type="file" accept="image/*"></label>
+<label>ডিজাইনের নির্দেশনা<textarea id="notes" placeholder="যেমন: সামনে নাম, পেছনে ছবি..."></textarea></label>
+<button class="btn primary" type="submit">অর্ডার রিকোয়েস্ট পাঠান</button>
+</form>
+</div>
+<div class="preview"><div id="previewShirt" class="preview-shirt">👕</div><p>আপনার ডিজাইন প্রিভিউ এখানে</p></div>
+</section>
+
+<section class="payment">
+<h2>💳 পেমেন্ট</h2>
+<p>চেকআউটে bKash Payment নির্বাচন করা যাবে।</p>
+<div class="paybox"><strong>bKash Merchant Gateway</strong><span>সিকিউর API credentials আপনার সার্ভার/হোস্টিংয়ের secret settings-এ রাখতে হবে।</span></div>
+</section>
+
+<section id="contact" class="section contact"><h2>যোগাযোগ</h2><p>📞 01845444205</p><p>📩 Facebook / Messenger: T-Shirt World</p></section>
+</main>
+
+<footer>© 2026 T-Shirt World · Custom T-Shirt & Printing</footer>
+
+<div id="cart" class="drawer"><div class="drawer-head"><h2>আপনার কার্ট</h2><button onclick="closeCart()">✕</button></div><div id="cartItems"></div><div class="total">মোট: ৳<span id="total">0</span></div><button class="btn primary full" onclick="checkout()">Checkout</button></div>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
